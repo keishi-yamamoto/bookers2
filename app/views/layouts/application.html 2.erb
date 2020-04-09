@@ -1,0 +1,36 @@
+<!DOCUTYPE html>
+<html>
+<head>
+  <title>Bookers</title>
+</head>
+<body>
+  <header>
+    <div id="slidemenu">
+      <ul>
+        <% if user_signed_in? %>
+        <li class="">
+          <%= link_to "logout", destroy_user_session_path, method: :delete %>
+        </li>
+        <li class="">
+          <%= link_to '投稿フォーム', new_post_book_path %>
+        </li>
+        <li class="">
+          <%= link_to 'Home', "#" %>
+        </li>
+        <% else %>
+        <li class="">
+          <%= link_to "sign up", new_user_registration_path %>
+        </li>
+        <li class="">
+          <%= link_to "login", new_user_session_path %>
+        </li>
+        <% end %>
+      </ul>
+    </div>
+  </header>
+
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+
+</body>
+</html>
