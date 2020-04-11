@@ -1,0 +1,35 @@
+<body>
+	<header class="navbar navbar-fixed-top-inverse">
+	</header>
+	<div class="body">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6 col-md-offset-3">
+					<h1>Editing Book</h1>
+					<%= form_for(@book) do |f| %>
+					<div class="field">
+						<%= f.label :title %><br>
+						<%= f.text_field :title %>
+					</div>
+
+					<div class="field">
+						<%= f.label "Opinion" %><br>
+						<%= f.text_field :body %>
+					</div>
+
+					<div class="actions">
+						<%= f.submit "Update Book" %>
+					</div>
+					<% end %>
+
+					<%= link_to book_path(@book.id) do %>
+					Show
+					<% end %>
+					<a>|</a>
+					<%= link_to "Back", books_path %>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
