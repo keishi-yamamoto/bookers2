@@ -5,11 +5,13 @@
 		<div class="container">
 			<h1>User info</h1>
 			<%= form_for(@user) do |f| %>
+			<%= render 'layouts/error_messages', model: f.object %>
 			<div class="field">
 				<%= f.label :name %><br>
 				<%= f.text_field :name %>
 			</div>
 
+			<label>Image</label>
 			<div class="form-group has-icon">
 				<div class="user-edit-image">
 					<%= attachment_image_tag @user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg"%>

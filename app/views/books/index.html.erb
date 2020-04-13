@@ -1,8 +1,25 @@
+<!-- Books in _navbar -->
 <body>
+  <header class="navbar navbar-fixed-top-inverse">
+  </header>
+
   <div class="body">
     <div class="container">
+      <% if @post_book.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= @post_book.errors.count %> errors prohibited this object from being saved:</h2>
+
+      <ul>
+        <% @post_book.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+        <% end %>
+      </ul>
+      <% end %>
       <div class="row">
-        <div class="col-xs-3"></div>
+
+        <div class="col-xs-3">
+          <%= render 'layouts/side_menu' %></div>
+
         <div class="col-xs-9">
           <h2>Books</h2>
           <table class="table table-hover table-inverse">

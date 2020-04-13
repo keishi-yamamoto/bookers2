@@ -1,3 +1,4 @@
+
 <h2>User info</h2>
 <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg"%>
 <table class="table">
@@ -14,10 +15,18 @@
 </table>
 <div class="row">
 	<% if @user.id == current_user.id %>
-	<p class="col-xs-12 btn btn-default glyphicon glyphicon-wrench">
-	<%= link_to "", edit_user_path(@user) %></p>
+	<%= link_to "", edit_user_path(@user), class: "col-xs-12 btn btn-default glyphicon glyphicon-wrench" %>
 	<% else %>
-	<p class="col-xs-12 btn btn-default glyphicon glyphicon-wrench">
-	<%= link_to "", user_path(@user) %></p>
+	<%= link_to "", user_path(current_user.id), class: "col-xs-12 btn btn-default glyphicon glyphicon-wrench" %>
 	<% end %>
 </div>
+
+
+<h2>New book</h2>
+<%= form_for(@post_book, {controller: :books, action: :create}) do |f| %>
+<div class="row"><label>Title</label>
+<%= f.text_field :title, class: "col-xs-12" %></div>
+<div class="row"><label>Opinion</label>
+<%= f.text_area :body, class: "col-xs-12" %></div>
+<div class="row"><%= f.submit "Create Book", class:"btn btn-primary col-xs-12" %></div>
+<% end %>
